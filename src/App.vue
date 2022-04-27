@@ -1,10 +1,25 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <ComponentHeader />
+
+  <router-view />
+
+  <ComponentFooter />
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+import ComponentHeader from '@/components/ComponentHeader.vue';
+import ComponentFooter from '@/components/ComponentFooter.vue';
+
+export default defineComponent({
+  name: 'HomeView',
+  components: {
+    ComponentHeader,
+    ComponentFooter,
+  },
+});
+</script>
 
 <style>
 #app {
@@ -13,18 +28,34 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-nav {
-  padding: 30px;
+body {
+  margin: 0;
+  padding: 12px 0 12px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  background-color: #9180d9;
+  width: 100vw;
+  height: 100vh;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.btn-primary {
+  background-color: #7A5CFA;
+  border-radius: 8px;
+  color: #FFFF;
+  cursor: pointer;
+  transition: 1ms;
+  padding: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.btn-primary:hover {
+  background-color: #624AC8;
 }
 </style>
